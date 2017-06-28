@@ -1,0 +1,35 @@
+name: Oversight.garden
+git:
+    url: https://github.com/konklone/oversight.garden.git
+    checkoutdir: oversight.garden
+    head: master
+docs:
+  - README.md
+steps:
+  - text: "Install [Node](https://nodejs.org/) version 6 or higher."
+    script:
+      - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+      - sudo apt-get install -y nodejs
+  - text: "Install [Elasticsearch](https://elastic.co) version 5.1 or higher."
+    script:
+      - wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+      - sudo apt-get install -y apt-transport-https
+      - echo "deb https://artifacts.elastic.co/packages/5.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-5.x.list
+      - sudo apt-get update
+      - sudo apt-get install -y elasticsearch
+  - text: "Install [Ruby](https://www.ruby-lang.org/en/) 2.3 or higher."
+    script:
+      - sudo apt-get install software-properties-common
+      - sudo apt-add-repository ppa:brightbox/ruby-ng
+      - sudo apt-get update
+      - sudo apt-get install -y ruby2.3 ruby2.3-dev ruby-switch
+      - sudo ruby-switch --set ruby2.3
+  - text: "gem install bundler"
+    script: gem install bundler
+  - text: "bundle install"
+    script: bundle install
+  - text: "npm install"
+    script: npm install
+  - text: "cp config/config.yaml.example config/config.yaml"
+    script: cp config/config.yaml.example config/config.yaml
+  - script: tasks/tests

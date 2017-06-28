@@ -1,0 +1,13 @@
+name: congress-android
+git:
+    url: https://github.com/konklone/congress-android.git
+    checkoutdir: congress-android
+    head: master
+docs:
+  - README.md
+steps:
+  - text: "copy `keys.xml.example` to `app/src/main/res/values/keys.xml`"
+    script: cp keys.xml.example app/src/main/res/values/keys.xml
+  - text: "copy `tracker.xml.example` to `app/src/main/res/xml/tracker.xml`"
+    script: cp tracker.xml.example app/src/main/res/xml/tracker.xml
+  - script: ./gradlew assembleDebug
