@@ -1,0 +1,43 @@
+name: govtrack
+git:
+    url: https://github.com/govtrack/govtrack.us-web.git
+    head: master
+    recursive: true
+docs: README.md
+steps:
+  - text:
+      - apt-get install git python-virtualenv python-lxml python-openid python-oauth2
+      - python-iso8601 python-scipy python-prctl
+    script: sudo apt-get install git python-virtualenv python-lxml python-openid python-oauth2 python-iso8601 python-scipy python-prctl
+  - text: git clone https://github.com/unitedstates/congress-legislators
+    script: git clone https://github.com/unitedstates/congress-legislators.git ../congress-legislators
+  - text: ./build/buildenv.sh
+    script: ./build/buildenv.sh
+  - text: cp settings_local.example.py settings_local.py
+    script: cp settings_local.example.py settings_local.py
+# TODO: secret key
+  - text: ./manage.py migrate
+    script: ./manage.py migrate
+  - text: ./minify
+    script: ./minify
+  - text: wget http://www.govtrack.us/data/db/django-fixture-{people,usc_sections,billterms}.json
+    script: wget http://www.govtrack.us/data/db/django-fixture-{people,usc_sections,billterms}.json
+  - text: ./manage.py loaddata django-fixture-people.json
+    script: ./manage.py loaddata django-fixture-people.json
+  - text: ./manage.py loaddata django-fixture-usc_sections.json
+    script: ./manage.py loaddata django-fixture-usc_sections.json
+  - text: ./manage.py loaddata django-fixture-billterms.json
+    script: ./manage.py loaddata django-fixture-billterms.json
+  - text: ./parse.py person
+    script: ./parse.py person
+  - text: ./parse.py committee
+    script: ./parse.py committee
+  - text: ./build/rsync.sh
+    script: ./build/rsync.sh
+  - text: ./parse.py bill --congress=114 --disable-index --disable-events
+    script: ./parse.py bill --congress=114 --disable-index --disable-events
+  - text: ./parse.py vote --congress=114 --disable-index --disable-events
+    script: ./parse.py vote --congress=114 --disable-index --disable-events
+  - text: ./manage.py runserver
+    script: ./manage.py runserver
+  - script: curl --fail http://localhost:3000/
