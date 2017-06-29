@@ -1,0 +1,18 @@
+name: openelections-core
+git:
+    url: https://github.com/openelections/openelections-core.git
+    head: dev
+docs: README.md
+steps:
+  - text: pip install virtualenv
+    script: sudo pip install virtualenv
+  - text: pip install virtualenvwrapper
+    script: sudo pip install virtualenvwrapper
+  - text: mkvirtualenv openelex
+    script: mkvirtualenv openelex
+  - text: pip install -e .
+    script: pip install -e .
+  - text: cp settings.py.tmplt settings.py
+    script: cp settings.py.tmplt settings.py
+# TODO: Edit file for mongodb
+# TODO: OPENELEX_SETTINGS
