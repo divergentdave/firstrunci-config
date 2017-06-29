@@ -7,7 +7,9 @@ docs:
   - docs/local_development.md
   - .ruby-version
 steps:
-  - text: 2.3.3
+  - text:
+      - The current Ruby version is included in the [`.ruby-version`](../.ruby-version)
+      - 2.3.3
     script:
       - wget -O ruby-install-0.6.1.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.1.tar.gz
       - tar -xzvf ruby-install-0.6.1.tar.gz
