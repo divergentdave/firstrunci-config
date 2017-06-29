@@ -1,7 +1,6 @@
 name: micropurchase
 git:
     url: https://github.com/18F/micropurchase.git
-    checkoutdir: micropurchase
     head: develop
 docs:
   - docs/local_development.md

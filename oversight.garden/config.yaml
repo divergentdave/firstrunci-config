@@ -1,7 +1,6 @@
 name: Oversight.garden
 git:
     url: https://github.com/konklone/oversight.garden.git
-    checkoutdir: oversight.garden
     head: master
 docs:
   - README.md
