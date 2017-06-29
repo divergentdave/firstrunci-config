@@ -1,0 +1,18 @@
+name: callisto
+git:
+    url: https://github.com/SexualHealthInnovations/callisto-core.git
+    head: master
+docs: CONTRIBUTING.md
+steps:
+  - text: "# install gpg"
+    script: sudo apt-get install -y gnupg
+  - text: pip install virtualenv
+    script: sudo pip install virtualenv
+  - text: virtualenv venv
+    script: virtualenv venv
+  - text: source venv/bin/activate
+    script: source venv/bin/activate
+  - text: pip install -r requirements/dev.txt
+    script: pip install -r requirements/dev.txt
+  - text: make test
+    script: make test
