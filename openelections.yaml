@@ -11,7 +11,7 @@ steps:
   - text: mkvirtualenv openelex
     script: mkvirtualenv openelex
   - text: pip install -e .
-    script: pip install -e .
+    script: source ~/.virtualenvs/openelex/bin/activate && pip install -e .
   - text: cp settings.py.tmplt settings.py
     script: cp settings.py.tmplt settings.py
 # TODO: Edit file for mongodb

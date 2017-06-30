@@ -10,9 +10,7 @@ steps:
     script: sudo pip install virtualenv
   - text: virtualenv venv
     script: virtualenv venv
-  - text: source venv/bin/activate
-    script: source venv/bin/activate
   - text: pip install -r requirements/dev.txt
-    script: pip install -r requirements/dev.txt
+    script: source venv/bin/activate && pip install -r requirements/dev.txt
   - text: make test
-    script: make test
+    script: source venv/bin/activate && make test
