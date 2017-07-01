@@ -14,7 +14,7 @@ steps:
       - tar -xzvf ruby-install-0.6.1.tar.gz
       - cd ruby-install-0.6.1/ && sudo make install
       - sudo ruby-install ruby 2.3.3
-  - text: `brew install phantomjs`
+  - text: "`brew install phantomjs`"
     script: sudo apt-get install -y phantomjs
   - text: $ bin/setup
     script: bin/setup
