@@ -1,6 +1,6 @@
 name: micropurchase
 git:
-    url: https://github.com/18F/micropurchase.git
+    url: "https://github.com/18F/micropurchase.git"
     head: develop
 docs:
   - docs/local_development.md
@@ -10,7 +10,7 @@ steps:
       - The current Ruby version is included in the [`.ruby-version`](../.ruby-version)
       - 2.3.3
     script:
-      - wget -O ruby-install-0.6.1.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.1.tar.gz
+      - "wget -O ruby-install-0.6.1.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.1.tar.gz"
       - tar -xzvf ruby-install-0.6.1.tar.gz
       - cd ruby-install-0.6.1/ && sudo make install
       - sudo ruby-install ruby 2.3.3
@@ -20,8 +20,8 @@ steps:
     script: bin/setup
   - text: foreman start
     script: foreman start
-  - text: up and running at\n[http://localhost:3000/](http://localhost:3000/)
-    script: curl --fail http://localhost:3000/
+  - text: "up and running at\n[http://localhost:3000/](http://localhost:3000/)"
+    script: "curl --fail http://localhost:3000/"
   - text: bundle exec rake spec
     script: bundle exec rake spec
   - text: bundle exec rake cucumber

@@ -1,6 +1,6 @@
 name: congress-android
 git:
-    url: https://github.com/konklone/congress-android.git
+    url: "https://github.com/konklone/congress-android.git"
     head: master
 docs:
   - README.md

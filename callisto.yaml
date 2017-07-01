@@ -1,6 +1,6 @@
 name: callisto
 git:
-    url: https://github.com/SexualHealthInnovations/callisto-core.git
+    url: "https://github.com/SexualHealthInnovations/callisto-core.git"
     head: master
 docs: CONTRIBUTING.md
 steps:

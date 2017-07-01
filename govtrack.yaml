@@ -1,6 +1,6 @@
 name: govtrack
 git:
-    url: https://github.com/govtrack/govtrack.us-web.git
+    url: "https://github.com/govtrack/govtrack.us-web.git"
     head: master
     recursive: true
 docs: README.md
@@ -9,8 +9,8 @@ steps:
       - apt-get install git python-virtualenv python-lxml python-openid python-oauth2
       - python-iso8601 python-scipy python-prctl
     script: sudo apt-get install git python-virtualenv python-lxml python-openid python-oauth2 python-iso8601 python-scipy python-prctl
-  - text: git clone https://github.com/unitedstates/congress-legislators
-    script: git clone https://github.com/unitedstates/congress-legislators.git ../congress-legislators
+  - text: "git clone https://github.com/unitedstates/congress-legislators"
+    script: "git clone https://github.com/unitedstates/congress-legislators.git ../congress-legislators"
   - text: ./build/buildenv.sh
     script: ./build/buildenv.sh
   - text: cp settings_local.example.py settings_local.py
@@ -20,8 +20,8 @@ steps:
     script: ./manage.py migrate
   - text: ./minify
     script: ./minify
-  - text: wget http://www.govtrack.us/data/db/django-fixture-{people,usc_sections,billterms}.json
-    script: wget http://www.govtrack.us/data/db/django-fixture-{people,usc_sections,billterms}.json
+  - text: "wget http://www.govtrack.us/data/db/django-fixture-{people,usc_sections,billterms}.json"
+    script: "wget http://www.govtrack.us/data/db/django-fixture-{people,usc_sections,billterms}.json"
   - text: ./manage.py loaddata django-fixture-people.json
     script: ./manage.py loaddata django-fixture-people.json
   - text: ./manage.py loaddata django-fixture-usc_sections.json
@@ -40,4 +40,4 @@ steps:
     script: ./parse.py vote --congress=114 --disable-index --disable-events
   - text: ./manage.py runserver
     script: ./manage.py runserver
-  - script: curl --fail http://localhost:3000/
+  - script: "curl --fail http://localhost:3000/"
