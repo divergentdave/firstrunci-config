@@ -1,4 +1,4 @@
-name: openelections-core
+name: openelections
 git:
     url: https://github.com/openelections/openelections-core.git
     head: dev

@@ -1,4 +1,4 @@
-name: Oversight.garden
+name: oversight.garden
 git:
     url: https://github.com/konklone/oversight.garden.git
     head: master
