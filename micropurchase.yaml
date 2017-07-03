@@ -2,6 +2,8 @@ name: micropurchase
 git:
     url: "https://github.com/18F/micropurchase.git"
     head: develop
+vagrant:
+    box: bento/ubuntu-16.10
 docs:
   - docs/local_development.md
   - .ruby-version

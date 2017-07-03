@@ -2,6 +2,8 @@ name: congress-android
 git:
     url: "https://github.com/konklone/congress-android.git"
     head: master
+vagrant:
+    box: bento/ubuntu-16.10
 docs:
   - README.md
 steps:

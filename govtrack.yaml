@@ -3,6 +3,8 @@ git:
     url: "https://github.com/govtrack/govtrack.us-web.git"
     head: master
     recursive: true
+vagrant:
+    box: bento/ubuntu-16.10
 docs: README.md
 steps:
   - text:

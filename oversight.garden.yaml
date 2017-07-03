@@ -2,6 +2,8 @@ name: oversight.garden
 git:
     url: "https://github.com/konklone/oversight.garden.git"
     head: master
+vagrant:
+    box: bento/ubuntu-16.10
 docs:
   - README.md
 steps:
