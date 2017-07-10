@@ -7,7 +7,11 @@ vagrant:
 docs: CONTRIBUTING.md
 steps:
   - text: "# install gpg"
-    script: sudo apt-get install -y gnupg
+    script:
+      - sudo apt-get install -y gnupg1
+      - sudo mv /usr/bin/gpg /usr/bin/gpg2
+      - sudo ln -s /usr/bin/gpg1 /usr/bin/gpg
+      # Note: GnuPG 2.1 makes it hard to delete secret keys without passphrases
   - text: pip install virtualenv
     script:
       - sudo apt-get install -y python3-pip
