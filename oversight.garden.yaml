@@ -18,7 +18,9 @@ steps:
       - sudo apt-get install -y apt-transport-https
       - echo "deb https://artifacts.elastic.co/packages/5.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-5.x.list
       - sudo apt-get update
-      - sudo apt-get install -y elasticsearch
+      - sudo apt-get install -y elasticsearch openjdk-8-jdk
+      - sudo sed -i -e 's/-Xms2g/-Xms256m/g' -e 's/-Xmx2g/-Xms256m/g' /etc/elasticsearch/jvm.options
+      - sudo service elasticsearch start
   - text: "Install [Ruby](https://www.ruby-lang.org/en/) 2.3 or higher."
     script:
       - sudo apt-get install software-properties-common
