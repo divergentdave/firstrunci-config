@@ -9,9 +9,11 @@ steps:
   - text: "# install gpg"
     script: sudo apt-get install -y gnupg
   - text: pip install virtualenv
-    script: sudo pip install virtualenv
+    script:
+      - sudo apt-get install -y python3-pip
+      - python3 -m pip install virtualenv
   - text: virtualenv venv
-    script: virtualenv venv
+    script: python3 -m virtualenv venv
   - text: pip install -r requirements/dev.txt
     script: source venv/bin/activate && pip install -r requirements/dev.txt
   - text: make test
