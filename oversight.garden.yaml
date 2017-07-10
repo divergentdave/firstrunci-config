@@ -37,4 +37,5 @@ steps:
     script: npm install
   - text: "cp config/config.yaml.example config/config.yaml"
     script: cp config/config.yaml.example config/config.yaml
-  - script: tasks/tests
+  - script: sudo apt-get install -y phantomjs
+  - script: "(QT_QPA_PLATFORM=offscreen phantomjs --webdriver=4444 &); tasks/tests"
