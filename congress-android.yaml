@@ -13,7 +13,7 @@ steps:
     script: cp tracker.xml.example app/src/main/res/xml/tracker.xml
   - script:
       - sudo apt-get update
-      - sudo apt-get install -y openjdk-8-jdk
+      - sudo apt-get install -y openjdk-8-jdk unzip
   - script:
       - wget https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip -O ~/sdk-tools-linux-3859397.zip
       - mkdir ~/android
