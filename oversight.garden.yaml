@@ -11,6 +11,7 @@ steps:
     script:
       - "curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -"
       - sudo apt-get install -y nodejs
+      - sudo npm install -g npm
   - text: "Install [Elasticsearch](https://elastic.co) version 5.1 or higher."
     script:
       - "wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -"
