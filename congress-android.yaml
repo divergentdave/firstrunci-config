@@ -18,7 +18,7 @@ steps:
       - wget https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip -O ~/sdk-tools-linux-3859397.zip
       - mkdir ~/android
       - mkdir ~/android/licenses
-      - unzip ~/sdk-tools-linux-3859397.zip -C ~/android
+      - unzip ~/sdk-tools-linux-3859397.zip -d ~/android
       - echo -n 8933bad161af4178b1185d1a37fbf41ea5269c55 > ~/android/licenses/android-sdk-license
       - ~/android/tools/bin/sdkmanager 'platforms;android-19' 'build-tools;25.0.0' 'extras;google;google_play_services'
   - script: ANDROID_HOME=~/android ./gradlew assembleDebug
