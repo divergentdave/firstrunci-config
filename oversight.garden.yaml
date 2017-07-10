@@ -24,12 +24,13 @@ steps:
   - text: "Install [Ruby](https://www.ruby-lang.org/en/) 2.3 or higher."
     script:
       - sudo apt-get install software-properties-common
-      - "sudo apt-add-repository ppa:brightbox/ruby-ng"
+      - "sudo apt-add-repository -y ppa:brightbox/ruby-ng"
       - sudo apt-get update
       - sudo apt-get install -y ruby2.3 ruby2.3-dev ruby-switch
       - sudo ruby-switch --set ruby2.3
+      - sudo gem install rake
   - text: "gem install bundler"
-    script: gem install bundler
+    script: sudo gem install bundler
   - text: "bundle install"
     script: bundle install
   - text: "npm install"
