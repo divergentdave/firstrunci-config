@@ -10,7 +10,7 @@ steps:
   - text:
       - apt-get install git python-virtualenv python-lxml python-openid python-oauth2
       - python-iso8601 python-scipy python-prctl
-    script: sudo apt-get install git python-virtualenv python-lxml python-openid python-iso8601 python-scipy python-prctl
+    script: sudo apt-get install -y git python-virtualenv python-lxml python-openid python-iso8601 python-scipy python-prctl
   - text: "git clone https://github.com/unitedstates/congress-legislators"
     script: "git clone https://github.com/unitedstates/congress-legislators.git ../congress-legislators"
   - text: ./build/buildenv.sh

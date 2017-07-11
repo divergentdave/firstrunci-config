@@ -23,7 +23,7 @@ steps:
       - sudo service elasticsearch start
   - text: "Install [Ruby](https://www.ruby-lang.org/en/) 2.3 or higher."
     script:
-      - sudo apt-get install software-properties-common
+      - sudo apt-get install -y software-properties-common
       - "sudo apt-add-repository -y ppa:brightbox/ruby-ng"
       - sudo apt-get update
       - sudo apt-get install -y ruby2.3 ruby2.3-dev ruby-switch
