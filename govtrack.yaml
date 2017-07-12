@@ -37,6 +37,11 @@ steps:
     script: ./manage.py loaddata django-fixture-usc_sections.json
   - text: ./manage.py loaddata django-fixture-billterms.json
     script: ./manage.py loaddata django-fixture-billterms.json
+  - script:  # parse.py needs more virtual memory to avoid triggering the oom-killer
+      - sudo dd if=/dev/zero of=/swapfile bs=1024 count=1048576
+      - sudo chmod 0600 /swapfile
+      - sudo mkswap /swapfile
+      - sudo swapon /swapfile
   - text: ./parse.py person
     script: ./parse.py person
   - text: ./parse.py committee
@@ -47,6 +52,7 @@ steps:
     script: ./parse.py bill --congress=114 --disable-index --disable-events
   - text: ./parse.py vote --congress=114 --disable-index --disable-events
     script: ./parse.py vote --congress=114 --disable-index --disable-events
+  - script: sudo swapoff /swapfile
   - text: ./manage.py runserver
     script: ./manage.py runserver
   - script: "curl --fail http://localhost:3000/"
