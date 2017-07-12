@@ -6,6 +6,10 @@ vagrant:
     box: bento/ubuntu-16.10
 docs: README.md
 steps:
+  - text: "[install Mongo]"
+  - script:
+      - sudo apt-get update
+      - sudo apt-get install -y mongodb
   - text: pip install virtualenv
     script: sudo pip install virtualenv
   - text: pip install virtualenvwrapper
