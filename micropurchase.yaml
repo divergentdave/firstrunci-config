@@ -20,17 +20,17 @@ steps:
       - "wget -O ruby-install-0.6.1.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.1.tar.gz"
       - tar -xzvf ruby-install-0.6.1.tar.gz
       - cd ruby-install-0.6.1/ && sudo make install
-      - sudo ruby-install ruby 2.3.3
+      - ruby-install ruby 2.3.3
   - text: "`brew install phantomjs`"
     script: sudo apt-get install -y phantomjs
   - text: $ bin/setup
-    script: bin/setup
-  - text: foreman start
-    script: foreman start
-  - text: "up and running at\n[http://localhost:3000/](http://localhost:3000/)"
-    script: "curl --fail http://localhost:3000/"
+    script: PATH=$PATH:~/.rubies/ruby-2.3.3/bin bin/setup
+  - text:
+      - foreman start
+      - "up and running at\n[http://localhost:3000/](http://localhost:3000/)"
+    script: "(PATH=$PATH:~/.rubies/ruby-2.3.3/bin foreman start &); sleep 60; curl --fail http://localhost:3000/"
   - text: bundle exec rake spec
-    script: bundle exec rake spec
+    script: PATH=$PATH:~/.rubies/ruby-2.3.3/bin bundle exec rake spec
   - text: bundle exec rake cucumber
-    script: bundle exec rake cucumber
+    script: PATH=$PATH:~/.rubies/ruby-2.3.3/bin bundle exec rake cucumber
 # TODO: edit .env with GH secrets, SAML simulator, create an account, make it an administrator account
