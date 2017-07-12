@@ -11,13 +11,13 @@ steps:
       - sudo apt-get update
       - sudo apt-get install -y mongodb
   - text: pip install virtualenv
-    script: sudo pip install virtualenv
-  - text: pip install virtualenvwrapper
-    script: sudo pip install virtualenvwrapper
+    script:
+      - sudo apt-get install -y python-pip
+      - pip install virtualenv
   - text: mkvirtualenv openelex
-    script: mkvirtualenv openelex
+    script: virtualenv .venv
   - text: pip install -e .
-    script: source ~/.virtualenvs/openelex/bin/activate && pip install -e .
+    script: source .venv/bin/activate && pip install -e .
   - text: cp settings.py.tmplt settings.py
     script: cp settings.py.tmplt settings.py
 # TODO: Edit file for mongodb
