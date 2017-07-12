@@ -44,8 +44,8 @@ steps:
       - sudo swapon /swapfile
   - text: ./parse.py person
     script: ./parse.py person
-  - text: ./parse.py committee
-    script: ./parse.py committee
+  - text: ./parse.py committee # fails b/c meeting data not available
+    script: ./parse.py committee || true
   - text: ./build/rsync.sh
     script: ./build/rsync.sh
   - text: ./parse.py bill --congress=114 --disable-index --disable-events
