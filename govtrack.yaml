@@ -54,5 +54,4 @@ steps:
     script: ./parse.py vote --congress=114 --disable-index --disable-events
   - script: sudo swapoff /swapfile
   - text: ./manage.py runserver
-    script: ./manage.py runserver
-  - script: "curl --fail http://localhost:3000/"
+    script: "(./manage.py runserver &); curl --fail http://localhost:8000/"
