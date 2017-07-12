@@ -18,7 +18,9 @@ steps:
       - "git clone https://github.com/unitedstates/congress-legislators.git ../congress-legislators"
   - text: ./build/buildenv.sh
     script: ./build/buildenv.sh
-  - script: . ".env/bin/activate; pip install oauth2"  # https://github.com/govtrack/govtrack.us-web/issues/136
+  - script:
+      - sudo apt-get install -y libffi-dev
+      - ". .env/bin/activate; pip install oauth2"  # https://github.com/govtrack/govtrack.us-web/issues/136
   - text: cp settings_local.example.py settings_local.py
     script: cp settings_local.example.py settings_local.py
   - text: ./manage.py generate_secret_key
