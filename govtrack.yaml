@@ -24,7 +24,7 @@ steps:
   - text: cp settings_local.example.py settings_local.py
     script: cp settings_local.example.py settings_local.py
   - text: ./manage.py generate_secret_key
-    script: "sed -i \"s/^SECRET_KEY.*/SECRET_KEY='$(./manage.py generate_secret_key | sed -e 's/&/\\&/g')'/\" settings_local.py"
+    script: "sed -i \"s/^SECRET_KEY.*/SECRET_KEY='$(./manage.py generate_secret_key | sed -e 's/&/\\\\&/g')'/\" settings_local.py"
   - text: ./manage.py migrate
     script: ./manage.py migrate
   - text: ./minify
