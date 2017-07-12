@@ -8,6 +8,11 @@ docs:
   - docs/local_development.md
   - .ruby-version
 steps:
+  - script:
+      - sudo apt-get install -y postgresql libpq-dev nodejs
+      - sudo -u postgres createuser vagrant -s
+      - sudo -u postgres createdb micropurchase_development
+      - sudo -u postgres createdb micropurchase_test
   - text:
       - The current Ruby version is included in the [`.ruby-version`](../.ruby-version)
       - 2.3.3
