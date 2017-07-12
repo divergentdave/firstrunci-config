@@ -20,5 +20,11 @@ steps:
     script: source .venv/bin/activate && pip install -e .
   - text: cp settings.py.tmplt settings.py
     script: cp settings.py.tmplt settings.py
-# TODO: Edit file for mongodb
-# TODO: OPENELEX_SETTINGS
+  - text:
+      - "You'll probably want to add a line to the ``postactivate`` [script]"
+      - in your virtualenv to set the ``OPENELEX_SETTINGS`` environment variable.
+    script: "echo 'export OPENELEX_SETTINGS=/vagrant/settings.py' >> .venv/bin/activate"
+  - text: $ openelex load_metadata.run --collection=office
+    script: . .venv/bin/activate && openelex load_metadata.run --collection=office
+  - text: $ openelex load_metadata.run --collection=party
+    script: . .venv/bin/activate && openelex load_metadata.run --collection=party
