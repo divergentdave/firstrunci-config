@@ -13,9 +13,7 @@ steps:
       - sudo update-locale LANG=en_US.UTF-8 --reset
   - script:
       - sudo apt-get install -y postgresql libpq-dev nodejs
-      - sudo -u postgres createuser vagrant -s
-      - createdb micropurchase_development
-      - createdb micropurchase_test
+      - sudo -u postgres createuser vagrant -s -d
   - text:
       - The current Ruby version is included in the [`.ruby-version`](../.ruby-version)
       - 2.3.3
