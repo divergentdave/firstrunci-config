@@ -1,0 +1,11 @@
+name: govtrack-cloud
+git:
+    url: "https://github.com/govtrack/govtrack.us-web.git"
+    head: cloud_deployment
+    recursive: true
+docs: README.md
+steps:
+  - text:
+      - "./manage.py runserver 0.0.0.0:8000"
+      - "Visit the website in your browser at http://localhost:8000!"
+    script: "(. .env/bin/activate && ./manage.py runserver 0.0.0.0:8000 &); sleep 30; curl --fail http://localhost:8000/"
