@@ -17,9 +17,9 @@ steps:
       - The current Ruby version is included in the [`.ruby-version`](../.ruby-version)
       - 2.3.3
     script:
-      - "wget -O ruby-install-0.6.1.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.1.tar.gz"
-      - tar -xzvf ruby-install-0.6.1.tar.gz
-      - cd ruby-install-0.6.1/ && sudo make install
+      - "wget -O ~/ruby-install-0.6.1.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.1.tar.gz"
+      - cd ~ && tar -xzvf ruby-install-0.6.1.tar.gz
+      - cd ~/ruby-install-0.6.1/ && sudo make install
       - ruby-install ruby 2.3.3
   - text: "`brew install phantomjs`"
     script: sudo apt-get install -y phantomjs
