@@ -25,7 +25,7 @@ steps:
   - text: "`brew install phantomjs`"
     script: sudo apt-get install -y phantomjs
   - text: $ bin/setup
-    script: PATH=$PATH:~/.rubies/ruby-2.3.3/bin bin/setup
+    script: PATH=$PATH:~/.rubies/ruby-2.3.3/bin BUNDLE_GITHUB__HTTPS=true bin/setup
   - text:
       - foreman start
       - "up and running at\n[http://localhost:3000/](http://localhost:3000/)"
