@@ -31,8 +31,6 @@ steps:
       - "up and running at\n[http://localhost:3000/](http://localhost:3000/)"
     script: "(PATH=$PATH:~/.rubies/ruby-2.3.3/bin foreman start &); sleep 60; curl --fail http://localhost:3000/"
   - script: PATH=$PATH:~/.rubies/ruby-2.3.3/bin bundle exec rake db:test:prepare
-  - text: bundle exec rake spec
-    script: PATH=$PATH:~/.rubies/ruby-2.3.3/bin QT_QPA_PLATFORM=offscreen bundle exec rake spec
-  - text: bundle exec rake cucumber
-    script: PATH=$PATH:~/.rubies/ruby-2.3.3/bin bundle exec rake cucumber
+  - text: bundle exec rake
+    script: PATH=$PATH:~/.rubies/ruby-2.3.3/bin QT_QPA_PLATFORM=offscreen bundle exec rake
 # TODO: edit .env with GH secrets, SAML simulator, create an account, make it an administrator account
