@@ -1,0 +1,15 @@
+name: discourse-vagrant
+git:
+    url: "https://github.com/discourse/discourse.git"
+    head: master
+docs: docs/VAGRANT.md
+steps:
+  - text:
+      - "bundle install"
+      - "bundle exec rake db:migrate"
+    script: "bundle install && bundle exec rake db:migrate"
+  - text:
+      - "bundle exec rails s -b 0.0.0.0"
+      - "open a web browser to [http://localhost:4000](http://localhost:4000)"
+    # Note that the Vagrantfile remaps VM port 3000 to 4000 on the host
+    script: "(bundle exec rails s -b 0.0.0.0 &) ; sleep 30 ; curl --fail http://localhost:3000/"

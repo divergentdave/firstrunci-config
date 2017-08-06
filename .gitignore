@@ -1,6 +1,7 @@
 /.env
 /callisto
 /congress-android
+/discourse-vagrant
 /govtrack
 /govtrack-cloud
 /micropurchase
